@@ -34,7 +34,8 @@ const deployYourContract: DeployFunction = async function (hre: HardhatRuntimeEn
 
   // Get the deployed contract to interact with it after deploying.
   const yourContract = await hre.ethers.getContract<Contract>("YourContract", deployer);
-  console.log("👋 Initial greeting:", await yourContract.greeting());
+  console.log("✅ Voting DApp contract deployed at:", yourContract.target);
+  console.log("📋 Contract owner:", await yourContract.owner());
 };
 
 export default deployYourContract;

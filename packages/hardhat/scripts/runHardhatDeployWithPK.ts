@@ -26,6 +26,21 @@ async function main() {
     return;
   }
 
+  // Check if private key is already set in environment variable
+  if (process.env.__RUNTIME_DEPLOYER_PRIVATE_KEY) {
+    // Private key is already set, use it directly
+    const hardhat = spawn("hardhat", ["deploy", ...process.argv.slice(2)], {
+      stdio: "inherit",
+      env: process.env,
+      shell: process.platform === "win32",
+    });
+
+    hardhat.on("exit", code => {
+      process.exit(code || 0);
+    });
+    return;
+  }
+
   const encryptedKey = process.env.DEPLOYER_PRIVATE_KEY_ENCRYPTED;
 
   if (!encryptedKey) {

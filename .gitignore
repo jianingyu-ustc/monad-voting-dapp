@@ -1,7 +1,17 @@
-# dependencies
-node_modules
+# ============================================
+# Dependencies
+# ============================================
+node_modules/
+.pnp
+.pnp.js
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
 
-# yarn
+# ============================================
+# Yarn
+# ============================================
 .yarn/*
 !.yarn/patches
 !.yarn/plugins
@@ -9,15 +19,122 @@ node_modules
 !.yarn/sdks
 !.yarn/versions
 
-# eslint
+# ============================================
+# Environment Variables & Secrets
+# ============================================
+.env
+.env.*
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.key
+*.pem
+*secret*
+*private*
+
+# ============================================
+# Build Outputs
+# ============================================
+dist/
+build/
+out/
+.next/
+.vercel/
+
+# ============================================
+# Hardhat
+# ============================================
+packages/hardhat/cache/
+packages/hardhat/artifacts/
+packages/hardhat/typechain-types/
+packages/hardhat/coverage/
+packages/hardhat/coverage.json
+packages/hardhat/deployments/*/solcInputs/
+packages/hardhat/deployments/*/*.dbg.json
+packages/hardhat/.env
+
+# ============================================
+# Next.js
+# ============================================
+packages/nextjs/.next/
+packages/nextjs/out/
+packages/nextjs/build/
+packages/nextjs/.vercel/
+packages/nextjs/.env.local
+packages/nextjs/.env*.local
+packages/nextjs/.swc/
+packages/nextjs/.turbo/
+packages/nextjs/ipfs-upload.config.json
+
+# ============================================
+# Testing & Coverage
+# ============================================
+coverage/
+*.lcov
+.nyc_output/
+
+# ============================================
+# Logs
+# ============================================
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+pnpm-debug.log*
+
+# ============================================
+# IDE & Editors
+# ============================================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+*.sublime-project
+*.sublime-workspace
+*.code-workspace
+
+# ============================================
+# TypeScript
+# ============================================
+*.tsbuildinfo
+.tsbuildinfo
+
+# ============================================
+# ESLint
+# ============================================
 .eslintcache
 
-# misc
+# ============================================
+# OS Files
+# ============================================
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+ehthumbs.db
+Desktop.ini
 
-# IDE
-.vscode
-.idea
+# ============================================
+# Temporary Files
+# ============================================
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+*~
 
-# cli
-dist
+# ============================================
+# Lock Files (uncomment if needed)
+# ============================================
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml

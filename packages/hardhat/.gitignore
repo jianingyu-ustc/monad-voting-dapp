@@ -1,30 +1,45 @@
-# dependencies
-node_modules
+# ============================================
+# Hardhat Specific
+# ============================================
 
-# env files
-.env
+# Hardhat build artifacts
+cache/
+artifacts/
+typechain-types/
+typechain/
 
-# coverage
-coverage
+# Coverage reports
+coverage/
 coverage.json
+*.lcov
 
-# typechain
-typechain
-typechain-types
+# Deployment artifacts (keep structure, ignore generated)
+deployments/localhost/
+deployments/*/solcInputs/
+deployments/*/*.dbg.json
 
-# hardhat files
-cache
-artifacts
+# Environment variables
+.env
+.env.local
+.env.*.local
 
-# zkSync files
-artifacts-zk
-cache-zk
-
-# deployments
-deployments/localhost
-
-# typescript
+# TypeScript
 *.tsbuildinfo
+.tsbuildinfo
 
-# other
-temp
+# zkSync (if using)
+artifacts-zk/
+cache-zk/
+
+# Temporary files
+temp/
+tmp/
+*.tmp
+*.temp
+
+# Logs
+*.log
+hardhat.log
+
+# Gas reports
+.gas-report.json

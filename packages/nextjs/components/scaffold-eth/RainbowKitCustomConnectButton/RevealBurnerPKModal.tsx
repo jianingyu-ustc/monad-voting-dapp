@@ -1,3 +1,5 @@
+"use client";
+
 import { useRef } from "react";
 import { rainbowkitBurnerWallet } from "burner-connector";
 import { ShieldExclamationIcon } from "@heroicons/react/24/outline";
@@ -12,7 +14,12 @@ export const RevealBurnerPKModal = () => {
 
   const handleCopyPK = async () => {
     try {
-      const storage = rainbowkitBurnerWallet.useSessionStorage ? sessionStorage : localStorage;
+      // Check if we're in browser environment
+      if (typeof window === "undefined") {
+        throw new Error("This function can only be called in the browser");
+      }
+
+      const storage = rainbowkitBurnerWallet.useSessionStorage ? window.sessionStorage : window.localStorage;
       const burnerPK = storage?.getItem(BURNER_WALLET_PK_KEY);
       if (!burnerPK) throw new Error("Burner wallet private key not found");
       await copyToClipboard(burnerPK);
